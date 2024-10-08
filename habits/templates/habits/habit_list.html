@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Habit Tracker</title>
+</head>
+<body>
+    <h1>Habit List</h1>
+    <a href="{% url 'habit_create' %}">Add New Habit</a>
+    <ul>
+        {% for habit in habits %}
+            <li>
+                {{ habit.name }} - <a href="{% url 'habit_edit' habit.pk %}">Edit</a> | 
+                <a href="{% url 'habit_delete' habit.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
